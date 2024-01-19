@@ -1,8 +1,21 @@
 using System;
 
-public class JournalEntry(prompt, response)
+public class JournalEntry
 {
-    string _prompText = prompt;
-    string _entryText = response;
-    string _date = DateTime.Now.ToShortDateString();
+    public string _prompText {get; set;}
+    public string _entryText {get; set;}
+    public string _date {get; set;}
+
+    public JournalEntry(string prompt, string response, string date)
+    {
+        _prompText = prompt;
+        _entryText = response;
+        _date = date;
+    }
+
+    public string Info()
+    {
+        string info = $"Date: {_date} Prompt of the Day: {_prompText} Your Response:{_entryText}";
+        return info;
+    }
 }

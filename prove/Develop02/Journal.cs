@@ -3,31 +3,28 @@ using System.IO;
 
 public class Journal
 {
-    private List<JournalEntry> entries = new List<JournalEntry>();
+    public List<JournalEntry> entries;
 
-    List<string> prompts = new List<string> {
-            "Who was the most interesting person I interacted with today?",
-            "What was the best part of my day?",
-            "How did I see the hand of the Lord in my life today?",
-            "What was the strongest emotion I felt today?",
-            "If I had one thing I could do over today, what would it be?"
-        };
-
-    string randomPrompt = GetRandomPrompt(prompts);
-
-
-    public T GetRandomPrompt<T>(List<T> prompts)
+    public Journal()
     {
-        Random random = new Random();
-        int randomIndex = random.Next(0, prompts.Count);
-        return prompts[randomIndex];
+        entries = new List<JournalEntry>();
+
     }
-    
 
-    public void AddEntry(string prompt, string response)
+    public PromptGenerator prompt = new PromptGenerator();
+
+
+    public void AddEntry(string prompt)
     {     
+        Console.WriteLine("Ok, let's write a new page of your journal: ");
+        Console.WriteLine($"Here's a prompt for you: {prompt}");
+        Console.Write("Your response: ");
+        string response = Console.ReadLine();
 
-        JournalEntry entry = new JournalEntry(prompt, response);
+        string date = DateTime.Now.ToShortDateString();
+
+        JournalEntry entry = new JournalEntry(prompt, response, date);     
+        
 
         entries.Add(entry);
 
@@ -50,17 +47,20 @@ public class Journal
             foreach(var entry in entries)
             {
                 outputFile.WriteLine(
-                    $"@ Date: {entry._date} - Prompt: {_prompText}\n{_entryText}"
+                    $"@ Date: {entry._date} - Prompt: {entry._prompText}\n{entry._entryText}"
                 );
             }
-        }
+
+            Console.Write($"New file {filename} added successfully.");        }
     }
 
-    public void LoadFromFile(string filetoOpen)
+
+
+    public void LoadFromFile(string fileToOpen)
     {
         entries.Clear();
 
-        string[] lines = System.IO.File.ReadAllLines(filetoOpen);
+        string[] lines = System.IO.File.ReadAllLines(fileToOpen);
 
         foreach (string line in lines)
         {
