@@ -6,16 +6,18 @@ public class JournalEntry
     public string _entryText {get; set;}
     public string _date {get; set;}
 
-    public JournalEntry(string prompt, string response, string date)
+    public JournalEntry (string prompt, string response, string date)
     {
         _prompText = prompt;
         _entryText = response;
         _date = date;
+
+/*         string info = $"Date: {_date} Prompt of the Day: {_prompText} Your Response:{_entryText}";
+ */        
     }
 
-    public string Info()
+    public override string ToString()
     {
-        string info = $"Date: {_date} Prompt of the Day: {_prompText} Your Response:{_entryText}";
-        return info;
+        return $"Date: {_date} Prompt of the Day: {_prompText} Your Response:{_entryText}";
     }
 }

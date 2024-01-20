@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using Microsoft.VisualBasic;
 
 public class Journal
 {
@@ -21,9 +22,12 @@ public class Journal
 
         string date = DateTime.Now.ToShortDateString();
 
-        JournalEntry entry = new JournalEntry(prompt, response, date);     
+        JournalEntry entry = new JournalEntry (prompt, response, date);     
         
+        /* string entryA = ; */
 
+        /* Console.Write($"entryA: {entryA}");
+        Console.Write($"entry:{entry}"); */
         entries.Add(entry);
 
         
@@ -31,6 +35,9 @@ public class Journal
 
     public void DisplayEntries()
     {
+
+        
+
         foreach (var entry in entries)
         {
             Console.WriteLine(entry);
@@ -45,11 +52,11 @@ public class Journal
             foreach(var entry in entries)
             {
                 outputFile.WriteLine(
-                    $"@ Date: {entry._date} - Prompt: {entry._prompText}\n{entry._entryText}"
+                    $"Date: {entry._date} - Prompt: {entry._prompText}\n{entry._entryText}\n"
                 );
             }
 
-            Console.Write($"New file {filename} added successfully.");        }
+            Console.WriteLine($"\nNew file {filename} added successfully.\n");        }
     }
 
 
@@ -62,8 +69,10 @@ public class Journal
 
         foreach (string line in lines)
         {
-            string[] parts = line.Split("@");
-            Console.WriteLine(parts);
+            /* string[] parts = line.Split("@");
+            Console.WriteLine(parts); */
+
+            Console.WriteLine(line);
 
         }
     }

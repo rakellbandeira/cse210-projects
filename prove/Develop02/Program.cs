@@ -33,7 +33,7 @@ class Program
 
                 journal.AddEntry(prompt.GetRandomPrompt());
 
-                break;
+                /* break; */
 
             }
 
@@ -42,7 +42,7 @@ class Program
             {
                 journal.DisplayEntries();
 
-                break;
+                /* break; */
             }
 
 
@@ -55,7 +55,7 @@ class Program
 
                 /* Console.Write($"New file {filename} added successfully."); */
 
-                break;
+                /* break; */
             }
 
 
@@ -66,7 +66,7 @@ class Program
 
                 journal.LoadFromFile(fileToOpen);
 
-                break;
+                /* break; */
             }
 
             else if (choice == 5)
@@ -80,7 +80,7 @@ class Program
             else
             {
                 Console.WriteLine("Invalid choice. Please enter a valid option.");
-                break;
+                /* break; */
             }    
 
         }
