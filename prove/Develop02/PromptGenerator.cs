@@ -1,10 +1,10 @@
 using System;
-
-public class PromptGenerator
+using System.Collections.Generic;
+class PromptGenerator
 {
 
     private List<string> prompts;
-    public void PromptList()
+    public PromptGenerator()
     {
         prompts = new List<string> {
             "Who was the most interesting person I interacted with today?",

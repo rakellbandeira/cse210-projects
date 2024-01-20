@@ -16,7 +16,7 @@ class Program
             Console.WriteLine("4. Load the journal from a file");
             Console.WriteLine("5. Exit");
 
-            Console.Write("Choose an option (1-5): ");
+            Console.WriteLine("Choose an option (1-5): ");
             string userChoice = Console.ReadLine();
             int choice = int.Parse(userChoice);
             

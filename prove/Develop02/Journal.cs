@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.IO;
 
 public class Journal
@@ -10,10 +11,7 @@ public class Journal
         entries = new List<JournalEntry>();
 
     }
-
-    public PromptGenerator prompt = new PromptGenerator();
-
-
+    
     public void AddEntry(string prompt)
     {     
         Console.WriteLine("Ok, let's write a new page of your journal: ");
