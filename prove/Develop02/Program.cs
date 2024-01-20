@@ -23,17 +23,7 @@ class Program
 
             if (choice == 1)
             {
-/*                 Console.WriteLine("Ok, let's write a new page of your journal: ");
- */                /* PromptGenerator promptOfDay = new PromptGenerator(); */
-                
-
-                /* Console.WriteLine($"Here's a prompt for you: {prompt}");
-                Console.Write("Your response: ");
-                string response = Console.ReadLine(); */
-
                 journal.AddEntry(prompt.GetRandomPrompt());
-
-                /* break; */
 
             }
 
@@ -42,7 +32,6 @@ class Program
             {
                 journal.DisplayEntries();
 
-                /* break; */
             }
 
 
@@ -52,10 +41,7 @@ class Program
                 string filename = Console.ReadLine();
 
                 journal.SaveToFile(filename);
-
-                /* Console.Write($"New file {filename} added successfully."); */
-
-                /* break; */
+            
             }
 
 
@@ -66,7 +52,7 @@ class Program
 
                 journal.LoadFromFile(fileToOpen);
 
-                /* break; */
+            
             }
 
             else if (choice == 5)
@@ -80,7 +66,7 @@ class Program
             else
             {
                 Console.WriteLine("Invalid choice. Please enter a valid option.");
-                /* break; */
+            
             }    
 
         }

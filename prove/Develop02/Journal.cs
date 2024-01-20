@@ -3,8 +3,21 @@ using System.Collections.Generic;
 using System.IO;
 using Microsoft.VisualBasic;
 
+/*
+        variables:
+        entries: List<JournalEntry>
+        
+        methods:
+        AddEntry(prompt : string) void
+        DisplayEntries() : void
+        SaveToFile(filename : string): void
+        LoadFromFile(fileToOpen : string): void
+
+    */
+
 public class Journal
 {
+    //creating a list with elements in the mold of the JournalEntry class
     public List<JournalEntry> entries;
 
     public Journal()
@@ -22,21 +35,17 @@ public class Journal
 
         string date = DateTime.Now.ToShortDateString();
 
+        //creaitng a new object of JournalEntry
         JournalEntry entry = new JournalEntry (prompt, response, date);     
         
-        /* string entryA = ; */
-
-        /* Console.Write($"entryA: {entryA}");
-        Console.Write($"entry:{entry}"); */
+    
         entries.Add(entry);
 
         
     }
 
     public void DisplayEntries()
-    {
-
-        
+    {   
 
         foreach (var entry in entries)
         {
@@ -68,9 +77,7 @@ public class Journal
         string[] lines = System.IO.File.ReadAllLines(fileToOpen);
 
         foreach (string line in lines)
-        {
-            /* string[] parts = line.Split("@");
-            Console.WriteLine(parts); */
+        {          
 
             Console.WriteLine(line);
 
