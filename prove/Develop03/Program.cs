@@ -4,6 +4,16 @@ class Program
 {
     static void Main(string[] args)
     {
+
+        // To exceed requirements, I made the program randomly pick
+        //the scripture text and the reference, from arrays and had it
+        //inserted into the classes with minor changes, such as:
+        // Scripture class, GetDisplayTextRef() - I had it only display
+        // the string given instead of the string interpolation with all
+        // the other variables _book, _chapter, etc.
+        // Instance of Scripture Class - I had it receive a string variable
+        //instead of a real string.
+
         string[] scriptureArray = {
             "For God so loved the world, that He gave his only Son.",
             "Therefore, go. And I said unto my father: I will go and do",
@@ -19,7 +29,6 @@ class Program
 
         string randomScriptureText = scriptureArray[randomIndex];
         string randomReference = referenceArray[randomIndex];
-
 
 
         Reference reference = new Reference (randomReference);
