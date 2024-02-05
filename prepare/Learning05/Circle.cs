@@ -1,8 +1,7 @@
-using System;
 
 public class Circle: Shape
 {
-    private double _radius = 0;
+    private double _radius;
 
     public Circle(string color, double radius): base (color)
     {

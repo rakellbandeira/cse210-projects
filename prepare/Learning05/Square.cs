@@ -1,10 +1,9 @@
-using System;
 
 public class Square: Shape
 {
-    private double _side = 0;
+    private double _side;
 
-    public Square(string color, double side): base(color)
+    public Square(string color, double side): base (color)
     {
         _color = color;
         _side = side;
