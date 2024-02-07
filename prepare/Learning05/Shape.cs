@@ -15,7 +15,7 @@ public abstract class Shape{
 
     public void SetColor(string color)
     {
-        return _color = color;
+        _color = color;
     }
 
     public abstract double GetArea();
