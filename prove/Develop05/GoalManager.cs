@@ -181,30 +181,35 @@ class GoalManager
 
         Console.Write("\nEnter the file to be loaded: ");
         string filetoBeLoaded = Console.ReadLine();
+        
 
-        string[] lines = System.IO.File.ReadAllLines(filetoBeLoaded);
-        /* string[] lines = File.ReadAllLines(filetoBeLoaded); */
+        string[] lines = File.ReadAllLines(filetoBeLoaded);
+        
 
         _score = int.Parse(lines[0]);
 
         for (int i = 1; i < lines.Length; i++)
-        {   string[] goalInfo = lines[i].Split(',');
+        {  
+            string[] goalInfo = lines[i].Split(',');
             
             string goalType = goalInfo[0];
             string name = goalInfo[1];
             string description = goalInfo[2];
             int points = int.Parse(goalInfo[3]);
 
+             
+
             if (goalType == "SimpleGoal")
             {
-                _goals.Add(new SimpleGoal(name, description, points));
-                break;
+                bool isComplete = bool.Parse(goalInfo[4]);
+                _goals.Add(new SimpleGoal(name, description, points){_isComplete = isComplete});
+                
             }
 
             else if (goalType == "EternalGoal")
             {
                 _goals.Add(new EternalGoal(name, description,points));
-                break;
+                
             }
 
             else if (goalType == "ChecklistGoal")
@@ -213,24 +218,10 @@ class GoalManager
                 int target = int.Parse(goalInfo[5]);
                 int bonus = int.Parse(goalInfo[6]);
                 _goals.Add(new ChecklistGoal(name, description, points, target, bonus){_amountCompleted = amountCompleted});
-                break;
+                
             }
 
-            /* switch(goalType)
-            {
-                case "SimpleGoal":
-                        _goals.Add(new SimpleGoal(name, description, points));
-                        break;
-                    case "EternalGoal":
-                        _goals.Add(new EternalGoal(name, description, points));
-                        break;
-                    case "ChecklistGoal":
-                        int amountCompleted = int.Parse(goalInfo[4]);
-                        int target = int.Parse(goalInfo[5]);
-                        int bonus = int.Parse(goalInfo[6]);
-                        _goals.Add(new ChecklistGoal(name, description, points, target, bonus) { _amountCompleted = amountCompleted });
-                        break;
-            } */
+            
 
             Console.WriteLine("");
 
