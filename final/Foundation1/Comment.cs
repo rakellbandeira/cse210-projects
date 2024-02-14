@@ -15,14 +15,3 @@ public void DisplayComments()
 }
 
 
-//Are they necessary?
-    public void SetNamePerson(string name)
-    {
-        _namePerson = name;
-    }
-
-    public string GetTextComment()
-    {
-        return _textComment;
-    }
-}
