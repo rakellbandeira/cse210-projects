@@ -28,11 +28,20 @@ class Video
 
     public void DisplayVideo()
     {
-        Console.WriteLine($"Title: {this._title}");
+        Console.WriteLine($"\nTitle: {this._title}");
         Console.WriteLine($"Author: {this._author}");
         Console.WriteLine($"Length: {this._length} seconds");
         Console.WriteLine($"Number of comments: {this.GetNumberComments()}");
 
+    }
+
+    public void DisplayAllComments()
+    {
+        Console.WriteLine($"First 3 Comments:");
+        foreach (Comment comment in _commentsList)
+        {
+            comment.DisplayComments();
+        }
     }
 
 }
