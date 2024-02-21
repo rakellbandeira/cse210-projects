@@ -25,7 +25,7 @@ class Order
         double price = product.GetProdPrice();
         int quantity = product.GetProdQuantity();
 
-        return price * quantity;
+        return price * _quantity;
     }
 
 
